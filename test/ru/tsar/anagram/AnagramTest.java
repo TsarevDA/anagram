@@ -17,9 +17,9 @@ class AnagramTest {
 
 	@Test
 	void givenNull_whenReverseText_thenErrorMessage() {
-		String expected = "Error.Input text must contain the symbols.";
-		String actual = anagram.reverseText(null);
-		assertEquals(expected, actual);
+		//String expected = "Text can't be null";
+		//String actual = anagram.reverseText(null);
+		assertThrows(NullPointerException.class,()->anagram.reverseText(null));
 	}
 
 	@Test

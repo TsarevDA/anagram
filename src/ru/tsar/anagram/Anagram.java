@@ -3,18 +3,25 @@ package ru.tsar.anagram;
 public class Anagram {
 
 	public String reverseText(String text) {
-		if (!(text instanceof String)) {
-			return "Error.Input text must contain the symbols.";
+		if (text == null) {
+			throw new NullPointerException("Text can't be null");
 		}
 
 		String[] words = text.split("\\s+");
 		StringBuilder result = new StringBuilder();
-
-		for (String word : words) {
-			result.append(reverseWord(word));
-			result.append(" ");
+		
+		for (int i=0;i<words.length;i++) {
+			result.append(reverseWord(words[i]));
+			if (!(i == words.length-1)) {
+				result.append(" ");
+			}
 		}
-		return (result.delete(result.length() - 1, result.length())).toString();
+		//for (String word : words) {
+			//result.append(reverseWord(word));
+			//result.append(" ");
+		//}
+		//return (result.delete(result.length() - 1, result.length())).toString();
+		return result.toString();
 	}
 
 	private String reverseWord(String word) {
