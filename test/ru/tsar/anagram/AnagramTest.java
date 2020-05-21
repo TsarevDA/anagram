@@ -17,9 +17,7 @@ class AnagramTest {
 
 	@Test
 	void givenNull_whenReverseText_thenErrorMessage() {
-		//String expected = "Text can't be null";
-		//String actual = anagram.reverseText(null);
-		assertThrows(NullPointerException.class,()->anagram.reverseText(null));
+		assertThrows(IllegalArgumentException.class, () -> anagram.reverseText(null));
 	}
 
 	@Test
@@ -31,8 +29,8 @@ class AnagramTest {
 
 	@Test
 	void givenLettersWord_whenReverseText_thenReversedWord() {
-		String expected = " dcba";
-		String actual = anagram.reverseText(" abcd");
+		String expected = "dcba";
+		String actual = anagram.reverseText("abcd");
 		assertEquals(expected, actual);
 	}
 

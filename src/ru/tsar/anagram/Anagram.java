@@ -4,23 +4,18 @@ public class Anagram {
 
 	public String reverseText(String text) {
 		if (text == null) {
-			throw new NullPointerException("Text can't be null");
+			throw new IllegalArgumentException("Text can't be null");
 		}
 
 		String[] words = text.split("\\s+");
 		StringBuilder result = new StringBuilder();
-		
-		for (int i=0;i<words.length;i++) {
-			result.append(reverseWord(words[i]));
-			if (!(i == words.length-1)) {
+
+		for (String word : words) {
+			if (!result.toString().equals("")) {
 				result.append(" ");
 			}
+			result.append(reverseWord(word));
 		}
-		//for (String word : words) {
-			//result.append(reverseWord(word));
-			//result.append(" ");
-		//}
-		//return (result.delete(result.length() - 1, result.length())).toString();
 		return result.toString();
 	}
 
