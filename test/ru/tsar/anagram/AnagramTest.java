@@ -16,7 +16,7 @@ class AnagramTest {
 	}
 
 	@Test
-	void givenNull_whenReverseText_thenErrorMessage() {
+	void givenNull_whenReverseText_thenIllegalArgumentException() {
 		assertThrows(IllegalArgumentException.class, () -> anagram.reverseText(null));
 	}
 
