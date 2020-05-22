@@ -3,12 +3,18 @@ package ru.tsar.anagram;
 public class Anagram {
 
 	public String reverseText(String text) {
+		if (text == null) {
+			throw new IllegalArgumentException("Text can't be null");
+		}
+
 		String[] words = text.split("\\s+");
 		StringBuilder result = new StringBuilder();
 
 		for (String word : words) {
+			if (!result.toString().equals("")) {
+				result.append(" ");
+			}
 			result.append(reverseWord(word));
-			result.append(" ");
 		}
 		return result.toString();
 	}
@@ -30,7 +36,7 @@ public class Anagram {
 			}
 		}
 		return (new String(chars));
-	} 
+	}
 
 	private void swap(int leftIndex, int rightIndex, char[] chars) {
 		char leftSymbol = chars[leftIndex];
