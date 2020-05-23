@@ -11,4 +11,5 @@ public class Main  {
 		scanner.close();
 		System.out.println(new Anagram().reverseText(text));
 	}
+
 }
